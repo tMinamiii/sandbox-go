@@ -21,8 +21,8 @@ func TestTRun(t *testing.T) {
 func TestCalculatorImpl_Calc_GlobalMock(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	mock := NewMockArithmetic(ctrl)
-	mock.EXPECT().Add(gomock.Any(), gomock.Any()).Return(int64(2)).Times(2)
-	mock.EXPECT().Sub(gomock.Any(), gomock.Any()).Return(int64(-8)).Times(2)
+	mock.EXPECT().Add(gomock.Any(), gomock.Any()).Return(int64(10)).Times(2)
+	mock.EXPECT().Sub(gomock.Any(), gomock.Any()).Return(int64(-10)).Times(2)
 
 	type fields struct {
 		ArithmeticSerivce Arithmetic
@@ -41,13 +41,13 @@ func TestCalculatorImpl_Calc_GlobalMock(t *testing.T) {
 			name:   "test case 1",
 			fields: fields{ArithmeticSerivce: mock},
 			args:   args{x: 1, y: 1},
-			want:   -8,
+			want:   -10,
 		},
 		{
 			name:   "test case 2",
 			fields: fields{ArithmeticSerivce: mock},
 			args:   args{x: 1, y: 1},
-			want:   -8,
+			want:   -10,
 		},
 	}
 	for _, tt := range tests {
