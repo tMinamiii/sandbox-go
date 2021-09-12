@@ -1,4 +1,4 @@
-package gocomp
+package gocmp
 
 type GoCompResponse struct {
 	Name string

@@ -1,9 +1,13 @@
-package main
+package goslice
 
 import (
 	"fmt"
 	"reflect"
 )
+
+func Unshift(s []int, elem int) []int {
+	return append([]int{elem}, s...)
+}
 
 const deBruijn64ctz = 0x0218a392cd3d5dbf
 
@@ -118,7 +122,7 @@ func calcNewCap(size uintptr, oldcap, cap int) int {
 	}
 	return newcap
 }
-func main() {
+func PrintCap() {
 	var val int
 	slice := make([]int, 0, 1)
 	appendValue := 1
