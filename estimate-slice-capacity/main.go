@@ -1,13 +1,9 @@
-package goslice
+package main
 
 import (
 	"fmt"
 	"reflect"
 )
-
-func Unshift(s []int, elem int) []int {
-	return append([]int{elem}, s...)
-}
 
 const deBruijn64ctz = 0x0218a392cd3d5dbf
 
@@ -122,10 +118,12 @@ func calcNewCap(size uintptr, oldcap, cap int) int {
 	}
 	return newcap
 }
-func PrintCap() {
-	var val int
-	slice := make([]int, 0, 1)
-	appendValue := 1
+
+func main() {
+	// int型以外で試す場合は以下のコードの型とappendする値を変更する
+	var val rune
+	slice := make([]rune, 0, 2)
+	appendValue := ','
 
 	rtype := reflect.TypeOf(val)
 	prevCap := cap(slice)
@@ -133,6 +131,8 @@ func PrintCap() {
 		if cap(slice) != prevCap {
 			newcap := calcNewCap(rtype.Size(), prevCap, len(slice))
 			fmt.Printf("Old Cap=%d, Actual New Cap=%d, Calc New Cap=%d\n", prevCap, cap(slice), newcap)
+			fmt.Printf("Actual Diff=%d, Calc Diff=%d\n", cap(slice)-prevCap, newcap-prevCap)
+			fmt.Println("---------------------------")
 			prevCap = cap(slice)
 		}
 		slice = append(slice, appendValue)
