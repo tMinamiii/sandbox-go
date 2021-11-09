@@ -7,7 +7,6 @@ import (
 func main() {
 	c := make(chan string)
 	done := make(chan struct{})
-	// defer close(c)
 	go worker(c, done)
 	for i := 1; i < 10; i++ {
 		c <- fmt.Sprintf("hello%d", i)
