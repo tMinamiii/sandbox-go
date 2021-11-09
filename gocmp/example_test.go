@@ -441,6 +441,12 @@ func TestAcyclicTransformer(t *testing.T) {
 		// 	return strings.Split(s, ",")
 		// }),
 	}
+	// cmp.FilterValues()
+	// cmp.FilterPath()
+	// cmp.Equal()
+	// cmp.Exporter()
+	// cmp.Ignore()
+	// cmp.Comparer()
 	if diff := cmp.Diff(v1, v2, opts...); diff != "" {
 		t.Errorf("Compare value is mismatch (-v1 +v2):%s\n", diff)
 	}
