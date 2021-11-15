@@ -7,6 +7,7 @@ import (
 const concurrency = 5
 
 var worker *ConcurrencyWorker
+var once sync.Once
 
 type ConcurrencyWorker struct {
 	ch chan func()
@@ -14,7 +15,6 @@ type ConcurrencyWorker struct {
 }
 
 func Start() *ConcurrencyWorker {
-	var once sync.Once
 	once.Do(
 		func() {
 			var wg sync.WaitGroup
