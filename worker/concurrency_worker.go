@@ -6,8 +6,10 @@ import (
 
 const concurrency = 5
 
-var worker *ConcurrencyWorker
-var once sync.Once
+var (
+	worker *ConcurrencyWorker
+	once   sync.Once
+)
 
 type ConcurrencyWorker struct {
 	ch chan func()
