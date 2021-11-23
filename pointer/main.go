@@ -13,6 +13,11 @@ func LoadPtr() *As {
 	return &a
 }
 
+func LoadEmptyPtr() *As {
+	var a *As
+	return a
+}
+
 func Load() As {
 	var a As
 	return a
@@ -20,10 +25,15 @@ func Load() As {
 
 func main() {
 	aPtr := LoadPtr()
-	fmt.Printf("aPtr: %v\n", aPtr)                         // &[]
-	fmt.Printf("*aPtr: %v\n", *aPtr)                       // []
-	fmt.Printf("(aPtr == nil): %v\n", aPtr == nil)         // false
-	fmt.Printf("(len(*aPtr) == 0): %v\n", len(*aPtr) == 0) // true
+	fmt.Println(aPtr)            // &[]
+	fmt.Println(*aPtr)           // []
+	fmt.Println(aPtr == nil)     // false
+	fmt.Println(len(*aPtr) == 0) // true
+
+	emptyPtr := LoadEmptyPtr()
+	fmt.Println(emptyPtr)        //nil
+	fmt.Println(emptyPtr == nil) //true
+	// fmt.Println(len(*emptyPtr) == 0) //Panic
 
 	a := Load()
 	fmt.Println(a)           // []
