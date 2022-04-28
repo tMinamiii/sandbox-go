@@ -21,3 +21,7 @@ func (a *ArithmeticImpl) Add(x int64, y int64) int64 {
 func (a *ArithmeticImpl) Sub(x int64, y int64) int64 {
 	return x - y
 }
+
+func (a *ArithmeticImpl) Mul(x, y int64) int64 {
+	return x * y
+}
