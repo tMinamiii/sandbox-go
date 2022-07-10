@@ -5,6 +5,7 @@ import (
 	"fmt"
 )
 
+// ErrOrig represents task colors
 type ErrOrig struct {
 	err error
 }
@@ -31,6 +32,7 @@ func main() {
 	detectErr(sub)
 }
 
+// detectErr represents
 func detectErr(err error) {
 	if _, ok := err.(*ErrOrig); ok {
 		fmt.Println("Orig is sub")
