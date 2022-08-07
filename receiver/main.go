@@ -22,7 +22,6 @@ func main() {
 	//  sVals[1].Write("test")
 
 	sPtrs := map[int]*S{1: {"A"}}
-
 	// You can call both Read and Write using a pointer
 	sPtrs[1].Read()
 	sPtrs[1].Write("test")

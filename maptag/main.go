@@ -36,6 +36,7 @@ func Encode(target map[string]string, src interface{}) error {
 		f := t.Field(i)
 		// 埋め込まれた構造体は再帰処理
 		if f.Anonymous {
+			Encode(target)
 			if err := Encode(target, e.Field(i).Addr().Interface()); err != nil {
 				return err
 			}
