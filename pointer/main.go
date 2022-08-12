@@ -4,6 +4,18 @@ import (
 	"fmt"
 )
 
+type B struct {
+	name string
+}
+
+func (a *B) SetPtr(name string) {
+	a.name = name
+}
+
+func (a B) Set(name string) {
+	a.name = name
+}
+
 type A struct{}
 
 type As []A

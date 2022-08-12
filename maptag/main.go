@@ -36,7 +36,9 @@ func Encode(target map[string]string, src interface{}) error {
 		f := t.Field(i)
 		// 埋め込まれた構造体は再帰処理
 		if f.Anonymous {
-			Encode(target)
+			if err := Encode(target, src); err != nil {
+				return err
+			}
 			if err := Encode(target, e.Field(i).Addr().Interface()); err != nil {
 				return err
 			}
@@ -50,7 +52,9 @@ func Encode(target map[string]string, src interface{}) error {
 
 		// 子供が構造体だったら再帰処理(名前は引き継ぐ)
 		if f.Type.Kind() == reflect.Struct {
-			Encode(target, e.Field(i).Addr().Interface())
+			if err := Encode(target, e.Field(i).Addr().Interface()); err != nil {
+				return err
+			}
 			continue
 		}
 
