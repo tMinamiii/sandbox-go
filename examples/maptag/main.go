@@ -9,8 +9,8 @@ import (
 
 // MapStruct represents Map
 type MapStruct struct {
-	Str     string  `map"str"`
-	StrPtr  *string `map"strPtr"`
+	Str     string  `map:"str"`
+	StrPtr  *string `map:"strPtr"`
 	Bool    bool    `map:"bool"`
 	BoolPtr *bool   `map:"boolPtr"`
 	Int     int     `map:"int"`

@@ -1,4 +1,4 @@
-module sandbox-go
+module github.com/tMinamiii/sandbox-go
 
 go 1.19
 
@@ -9,6 +9,7 @@ require (
 	github.com/jmoiron/sqlx v1.3.5
 	github.com/jszwec/csvutil v1.7.0
 	github.com/kelseyhightower/envconfig v1.4.0
+	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 )
 

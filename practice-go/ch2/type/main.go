@@ -49,6 +49,5 @@ func (n NationalRoute) String() string {
 		return "栗の木バイパス"
 	default:
 		return fmt.Sprintf("国道%d号線", n)
-
 	}
 }
