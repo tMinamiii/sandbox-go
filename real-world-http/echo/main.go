@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"net/http/httputil"
+	"net/url"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
@@ -15,6 +16,15 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 	fmt.Println(string(dump))
 	fmt.Fprintf(w, "<html><body>hello</body></html>\n")
+}
+
+func network() *url.URL {
+	u := &url.URL{
+		Scheme: "https",
+		Host:   "example.com",
+	}
+
+	return u
 }
 
 func main() {
