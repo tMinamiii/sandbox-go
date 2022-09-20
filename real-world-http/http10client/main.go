@@ -123,3 +123,62 @@ func curl7() {
 	}
 	log.Println("Status:", resp.Status)
 }
+
+func curl8() {
+	var buffer bytes.Buffer
+	writer := multipart.NewWriter(&buffer)
+	writer.WriteField("name", "MJ")
+
+	fileWriter, err := writer.CreateFormFile("thumbnail", "photo.jpg")
+	if err != nil {
+		os.Exit(1)
+	}
+
+	readFile, err := os.Open("photo.jpg")
+	if err != nil {
+		os.Exit(1)
+	}
+	defer readFile.Close()
+
+	io.Copy(fileWriter, readFile)
+	writer.Close()
+
+	resp, err := http.Post(URL, writer.FormDataContentType(), &buffer)
+	if err != nil {
+		os.Exit(1)
+	}
+	log.Println("status", resp.Status)
+
+}
+
+func curl9() {
+	var buffer bytes.Buffer
+	writer := multipart.NewWriter(&buffer)
+	writer.WriteField("name", "MJ")
+
+	fileWriter, err := writer.CreateFormFile("thumbnail", "photo.jpg")
+	if err != nil {
+		os.Exit(1)
+	}
+
+	readFile, err := os.Open("photo.jpg")
+	if err != nil {
+		os.Exit(1)
+	}
+	defer readFile.Close()
+
+	io.Copy(fileWriter, readFile)
+	writer.Close()
+
+	resp, err := http.Post(URL, writer.FormDataContentType(), &buffer)
+	if err != nil {
+		os.Exit(1)
+	}
+	log.Println("status", resp.Status)
+}
+
+func curl10() {
+	var buffer bytes.Buffer
+	writer := multipart.NewWriter(&buffer)
+	writer.WriteField("name", "MJ")
+}
